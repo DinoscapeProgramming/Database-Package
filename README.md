@@ -66,8 +66,7 @@ console.log(file.get(1 /*index*/).value);
 
 ## Todo
 - Implement the `getDatabasesByName` function to get all databases with the same name in an array
-- Make a option to set the class results synchronous or asynchronous `default=asynchronous type=promiseBased`
-- Import options from `dotenv` based file 
+- Import options from `dotenv` based file
 
 ## Disclaimer
 This package is mainly promise based but also contains a synchronous function for each function. If you're using a class to register a database it will call the asynchronous version and return the result synchronously.
