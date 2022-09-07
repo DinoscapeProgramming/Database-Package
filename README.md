@@ -11,6 +11,17 @@ const Database = new db.Database({
 });
 ```
 
+### Use environment file to setup
+```js
+const db = require('db.json');
+let Database;
+db.convertToEnvironmentObject({
+  path: "./environment.txt" // the environment file where your options are stored
+}).then((result) => {
+  Database = new db.Database(result.object);
+});
+```
+
 ### Files
 ##### Get file by index
 ```js
@@ -98,6 +109,14 @@ const Database = new db.Database({
 });
 ```
 
+### Use environment file to setup
+```js
+const db = require('db.json');
+const Database = new db.Database(db.convertToEnvironmentObjectSync({
+  path: "./environment.txt" // the environment file where your options are stored
+}));
+```
+
 ### Files
 ##### Get file by index
 ```js
@@ -152,8 +171,7 @@ console.log(file.get(1 /*index*/).value);
 ```
 
 ## Todo
-- Implement the `getDatabasesByName` function to get all databases with the same name in an array
-- Import options from `dotenv` based file 
+- There are currently no todos
 
 ## Disclaimer
 This package is mainly promise based but also contains a synchronous function for each function. If you're using a class to register a database it will call the asynchronous version and return the result synchronously.
